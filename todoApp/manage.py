@@ -1,20 +1,40 @@
 #!/usr/bin/env python
-"""Django's command-line utility for administrative tasks."""
-import os
+#  vim:ts=4:sts=4:sw=4:et
+#
+#  Author: Hari Sekhon
+#  Date: 2019-09-27
+#
+#  https://github.com/HariSekhon/DevOps-Python-tools
+#
+#  License: see accompanying Hari Sekhon LICENSE file
+#
+#  If you're using my code you're welcome to connect with me on LinkedIn and optionally send me feedback
+#  to help improve or steer this or other code I publish
+#
+#  https://www.linkedin.com/in/HariSekhon
+#
+
+"""
+Simple tool to print the Python sys.path, one per line
+Tested on Python 2.7 and Python 3.x on Mac and Linux
+"""
+
+from __future__ import print_function
+#from __future__ import unicode_literals
+
 import sys
+
+__author__ = 'Hari Sekhon'
+__version__ = '0.1.0'
+
+#libdir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'pylib'))
+#sys.path.append(libdir)
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'todoApp.settings')
-    try:
-        from django.core.management import execute_from_command_line
-    except ImportError as exc:
-        raise ImportError(
-            "Couldn't import Django. Are you sure it's installed and "
-            "available on your PYTHONPATH environment variable? Did you "
-            "forget to activate a virtual environment?"
-        ) from exc
-    execute_from_command_line(sys.argv)
+    for path in sys.path:
+        if path:
+            print(path)
 
 
 if __name__ == '__main__':
